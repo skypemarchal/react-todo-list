@@ -8,5 +8,38 @@
   }
 }
 .todo-form{
+  justify-content: center;
   display: flex;
+}
+
+.todo-item{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid whitesmoke;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.todo-item-completed{
+  background: green;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid whitesmoke;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.todo-item:hover{
+  background: whitesmoke;
+  box-shadow: 0 0 50px #ccc;
+}
+
+.todo-actions > button{
+  cursor: pointer;
 }
