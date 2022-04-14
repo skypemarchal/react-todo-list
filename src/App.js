@@ -1,15 +1,14 @@
-import { useRef } from 'react';
-import { useReducer } from 'react';
-import { useState } from 'react';
 import './App.css';
 import TodoList from './components/TodoList';
+import { store } from './redux/store';
+import { Provider } from 'react-redux'
+import Form from './components/Form';
 
 function App() {
-  const [index, setIndex] = useState(1);
-  const inputRef = useRef();
-  const initialState = [];
+  
+  
 
-  function reducer(state, action)
+  /* function reducer(state, action)
   {
     switch(action.type)
     {
@@ -33,29 +32,18 @@ function App() {
     }
   }
 
-  const [items, dispatch] = useReducer(reducer, initialState);
+  const [items, dispatch] = useReducer(reducer, initialState); */
 
-  function addItem()
-  {
-    var text = inputRef.current.value;
-    setIndex(index+1)
-    dispatch({
-      type: "addItem",
-      payload: {id: index, name: text, done: false}
-    })
-
-    inputRef.current.value = ""
-  }
+  
 
   return (
-    <div className="App">
-      <div className='todo-form'>
-        <input ref={inputRef} type="text" placeholder='Nouvelle tache'/>
-        <button onClick={addItem}>Ajouter</button>
+    <Provider store={store}>
+      <div className="App">
+        <Form />
+        <TodoList /* items={items} dispatch={dispatch} *//> 
       </div>
-
-      <TodoList items={items} dispatch={dispatch}/> 
-    </div>
+    </Provider>
+    
   );
 }
 

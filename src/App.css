@@ -10,6 +10,7 @@
 .todo-form{
   justify-content: center;
   display: flex;
+  margin-top: 50px;
 }
 
 .todo-item{
@@ -42,4 +43,11 @@
 
 .todo-actions > button{
   cursor: pointer;
+}
+
+input{
+  width: 70%;
+  border: 1px solid wheat;
+  height: 30px;
+  border-radius: 5px;
 }
