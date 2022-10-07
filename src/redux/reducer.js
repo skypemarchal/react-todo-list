@@ -1,23 +1,28 @@
+import { ADD_TASK, GET_TASKS, DELETE_TASK } from "./actions";
+
 const initialState = [];
 function reducer(state = initialState, action)
   {
     switch(action.type)
     {
-        
-      case "addItem":
-        return [...state, action.payload]
+      case GET_TASKS:
+        //initialState = action.payload;
+        return action.payload;
 
-      case "deleteItem":
+      case DELETE_TASK:
         var current = [...state]
-        var news = current.splice(action.payload, 1)
-
-        console.log(news);
-        return current;//[action.payload];
-      case "completeItem":
-        current = [...state];
-        current[action.payload].done = true;
-        //console.log(current[action.payload]);
+        current.splice(action.payload, 1)
         return current;
+
+      case "completeItem":
+          const i = action.payload;
+          current = [...state];
+          current[i].done = !current[i].done;
+        return current;
+
+        case "reset":
+            return [];
+
       default:
         return state;
     }
